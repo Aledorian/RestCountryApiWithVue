@@ -19,10 +19,10 @@ onMounted(async() => {
 </script>
 
     <template>
-        <section v-if="element">
+        <section v-if="element" class="container">
             <div class="card">
+                <h1>{{ element.name.common }}</h1>
                     <img :src = "element.flags.png" alt="">
-                    <h3>{{ element.name.common }}</h3>
                     <ul>    
                         <li>Population : {{ new Intl.NumberFormat("fr-FR").format(element.population) }}</li>
                         <li>Region : {{ element.region }}</li>
@@ -41,3 +41,32 @@ onMounted(async() => {
             </div>
         </section>
     </template>
+
+<style scoped>
+    .container{
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        width: 80%;
+    }
+
+    h1{
+        font-size: 5em
+    }
+
+    img{
+        width:80%
+    }
+
+    ul{
+        list-style: none;
+    }
+
+    li{
+        font-size: 1.5em;
+        line-height: 40px;
+    }
+    
+
+</style>
