@@ -20,10 +20,19 @@
     <script setup> 
 
     import { useFilter } from "@/store/useUrlStore"
-    import { ref, watchEffect } from "vue"
+    import { ref, watchEffect, onMounted} from "vue"
 
     const filter = useFilter();
     const elements = ref([])
+
+    onMounted(async ()=>{
+        await fetch("https://restcountries.com/v3.1/all")
+        .then((res) => res.json())
+        .then(data => {
+            elements.value = data
+            }
+        )
+    })
 
     watchEffect(() => {
         if (filter.url === "https://restcountries.com/v3.1/") {
@@ -31,7 +40,6 @@
         .then((res) => res.json())
         .then(data => {
             elements.value = data
-            console.log(data);
             }
         )
         .catch(err => console.log(err.messages)) 
