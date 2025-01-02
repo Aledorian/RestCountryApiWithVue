@@ -2,14 +2,16 @@
     <template>
     <section v-if="elements.length > 0" id="cardList">
         <template v-for="element in elements" :key="element.cca3">
-            <div class="card" >
-                <img :src = "element.flags.png" alt="">
-                <h3>{{ element.name.common }}</h3>
-                <ul>    
-                    <li>Population : {{ new Intl.NumberFormat("fr-FR").format(element.population) }}</li>
-                    <li>Region : {{ element.region }}</li>
-                    <li>Capital : {{ element.capital?.[0] || "No capital"}}</li>
-                </ul>
+            <div class="card">
+                <RouterLink :to='"/details/"+ element.cca3' @click="choseCountry(element.cca3)">
+                    <img :src = "element.flags.png" alt="">
+                    <h3>{{ element.name.common }}</h3>
+                    <ul>    
+                        <li>Population : {{ new Intl.NumberFormat("fr-FR").format(element.population) }}</li>
+                        <li>Region : {{ element.region }}</li>
+                        <li>Capital : {{ element.capital?.[0] || "No capital"}}</li>
+                    </ul>
+                </RouterLink>
             </div>
         </template>
     </section>
@@ -20,40 +22,32 @@
     <script setup> 
 
     import { useFilter } from "@/store/useUrlStore"
-    import { ref, watchEffect, onMounted} from "vue"
+    import { ref, watch, onMounted} from "vue"
 
     const filter = useFilter();
     const elements = ref([])
 
-    onMounted(async ()=>{
-        await fetch("https://restcountries.com/v3.1/all")
-        .then((res) => res.json())
-        .then(data => {
-            elements.value = data
-            }
-        )
-    })
-
-    watchEffect(() => {
-        if (filter.url === "https://restcountries.com/v3.1/") {
-        fetch("https://restcountries.com/v3.1/all")
-        .then((res) => res.json())
-        .then(data => {
-            elements.value = data
-            }
-        )
-        .catch(err => console.log(err.messages)) 
-        }else{
-            fetch(filter.url)
-            .then((res) => res.json())
-            .then(data => {
-                elements.value = data
-                console.log(data);
-                }
-            )
-            .catch(err => console.log(err.messages))
+    const fetchData = async (url) => {
+        try {
+            const res = await fetch(url);
+            const data = await res.json();
+            elements.value = data; // Update country list
+        } catch (err) {
+            console.log(err.message);
         }
+    };
+
+    onMounted(async ()=>{
+        fetchData("https://restcountries.com/v3.1/all")
     })
+    
+    watch(() => filter.url, (newUrl) => {
+        fetchData(newUrl)
+    })    
+
+    const choseCountry = (cca3) => {
+        filter.search('https://restcountries.com/v3.1/alpha/'+cca3)
+    }
 
     </script>
 

@@ -19,7 +19,7 @@ let regionUrl = () => {
 
 let nameUrl = () => {
     if (!name.value ) {
-        filter.search(url);
+        filter.search(url+"all");
     }else{
         filter.search(url+"name/"+name.value);
     }
