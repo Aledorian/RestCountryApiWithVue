@@ -61,7 +61,7 @@
 
     .card{
         width: calc(90% - 10px);
-        aspec-ratio: 2/1;
+        aspect-ratio: 2/1;
         background-color: var(--card-color);
         margin-top: 80px;
         box-shadow: 1px 1px 5px var(--shadow);
