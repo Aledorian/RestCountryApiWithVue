@@ -47,12 +47,15 @@ let nameUrl = () => {
 
 .filter{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     margin: 0px 20px;
 }
 
 input{
-    width: 25%;
+    margin:20px 0px;
+    width: calc(80% - 50px);
     height: 50px;
     border: none;
     box-shadow: 0px 5px 5px var(--shadow);
@@ -71,11 +74,36 @@ input::placeholder{
 }
 
 #filterRegion{
-    width: 180px;
+    width: 80%;
+    height: 50px;
     border: none;
     background-color: var(--input-color);
     box-shadow: 0px 5px 5px var(--shadow);
     padding: 0px 15px;
+}
+
+@media (min-width: 768px) {
+    .filter{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin: 0px 20px;
+    }
+
+    input{
+        width: 60%;
+    }
+
+    #filterRegion{
+        width: 180px;
+    }
+}
+
+@media (min-width: 1280px) {
+    #filterRegion{
+        width: 180px;
+    }
+
 }
 
 </style>
