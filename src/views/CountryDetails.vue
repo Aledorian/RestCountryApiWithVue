@@ -33,6 +33,10 @@ onMounted(async() => {
                             <span v-if="element.unMember">Oui</span>
                             <span v-else>Non</span>
                         </li>
+                        <li>Superficie : {{ new Intl.NumberFormat("fr-FR").format(element.area) }}km²</li>
+                        <li>Devise: {{ Object.values(element.currencies)[0].name }} ({{ Object.values(element.currencies)[0].symbol }})</li>
+                        <li>Indice téléphonique : {{ element.idd.root }}{{ element.idd.suffixes[0] }}</li>
+                        <li>Cordonnée : lat {{ element.latlng[0] }}° long {{ element.latlng[1] }}°</li>
                     </ul>
             </div>
         </section>
