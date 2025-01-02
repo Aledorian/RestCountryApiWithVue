@@ -1,29 +1,8 @@
-# vue_test
+# Premier projet avec VueJS
 
-This template should help get you started developing with Vue 3 in Vite.
+Apprentissage des bases de Vue 3 avec l'utilisation de la composition API et de la library Pinia. 
 
-## Recommended IDE Setup
+# Description du projet 
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Consommation de l'api REST country avec la possibilité de rechercher un pays ou de filtrer par continent. 
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
