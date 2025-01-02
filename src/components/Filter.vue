@@ -6,7 +6,7 @@ let url = "https://restcountries.com/v3.1/"
 
 let filter = useFilter();   
 let name = ref('');
-let region= ref('all');
+let region= ref('');
 
 let regionUrl = () => {
     if (region.value !== "all") {
@@ -25,15 +25,13 @@ let nameUrl = () => {
     }
 }
 
-
-
 </script>
 
 <template>
     <section class="filter">
         <input type="text" id="search" v-model="name" @input="nameUrl()" placeholder="Search for a country...">
-        <select name="filterRegion" v-model="region" @change="regionUrl()" id="filterRegion"> Filter by Region
-            <option value="all" :selected="selected">Filter by Region</option>
+        <select name="filterRegion" v-model="region" @change="regionUrl()" id="filterRegion"> 
+            <option value="all" selected="selected">Filter by Region</option>
             <option value="Africa">Africa</option>
             <option value="America">America</option>
             <option value="Asia">Asia</option>
