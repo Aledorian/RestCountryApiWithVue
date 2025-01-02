@@ -6,7 +6,7 @@
                 <img :src = "element.flags.png" alt="">
                 <h3>{{ element.name.common }}</h3>
                 <ul>    
-                    <li>Population : {{ element.population }}</li>
+                    <li>Population : {{ new Intl.NumberFormat("fr-FR").format(element.population) }}</li>
                     <li>Region : {{ element.region }}</li>
                     <li>Capital : {{ element.capital?.[0] || "No capital"}}</li>
                 </ul>
