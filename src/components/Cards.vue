@@ -59,49 +59,68 @@
 
     <style scoped> 
 
-        #cardList{
+    .card{
+        width: calc(90% - 10px);
+        aspec-ratio: 2/1;
+        background-color: var(--card-color);
+        margin-top: 80px;
+        box-shadow: 1px 1px 5px var(--shadow);
+        text-align: justify;
+        border-radius: 25px;
+    }
+
+    .card{
+        margin-bottom: 10px;
+    }
+        
+    .card img{
+        width: 100%;
+        height: 200px;
+        border-radius: 25px 25px 0px 0;
+        box-shadow: 0px 5px 5px var(--shadow);
+    } 
+
+    #cardList{
             display: flex;
             flex-direction: row;
             justify-content: space-around;
             align-items: space-around;
             flex-wrap: wrap;
-        }
+    }
 
+
+    h3{
+        text-align: center;
+        margin: 25px 0px;
+    }
+
+    ul{
+        list-style: none;
+        line-height: 30px;
+        margin: auto;
+        width: fit-content;
+    }
+
+    @media (min-width: 768px) {
         .card{
-            width: calc((100% / 4) - 80px);
-            height: 450px;
-            background-color: var(--card-color);
-            margin-top: 80px;
-            box-shadow: 1px 1px 5px var(--shadow);
-            text-align: justify;
-            border-radius: 25px;
-            }
-
-        .card:has( + *){
-            margin-bottom: 20px;
+            width: calc((100% / 2) - 80px);
+            aspect-ratio: 2/1;
         }
-
-        .card img{
-            width: 100%;
-            max-height: 200px;
-            border-radius: 25px 25px 0px 0;
-            box-shadow: 0px 5px 5px var(--shadow);
+        
+        .card:hover{
+            transform: scale(1.15);
         }
-
-        h3{
-            text-align: center;
-            margin-bottom: 25px;
+    }
+    
+    @media (min-width: 1280px) {
+        .card{
+            width: calc((100% / 4) - 60px);
+            height: 400px;
         }
 
         ul{
-            list-style: none;
-            line-height: 50px;
-            margin: auto;
-            width: fit-content;
+            line-height: 40px;
         }
-
-        .card:hover{
-            transform: scale(1.3);
-        }
-
+    }
+        
     </style>
