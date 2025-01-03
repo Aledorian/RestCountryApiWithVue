@@ -3,6 +3,9 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 import router from './router'
 
+if(window.matchMedia('(prefers-color-scheme: dark)').matches){  
+    document.querySelector('body').classList.add('dark')
+}
 
 const app = createApp(App)
 app.use(router)
