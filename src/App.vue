@@ -1,13 +1,10 @@
 <script setup>
   import Navbar from "./components/Navbar.vue"
-  import Cards from "./components/Cards.vue"
-  import Filter from './components/Filter.vue'
 </script>
 
 <template>
-  <Navbar/>
-  <Filter/>
-  <Cards/>
+    <Navbar/>
+    <RouterView/>
 </template>
 
 

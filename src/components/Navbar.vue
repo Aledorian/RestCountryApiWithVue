@@ -10,7 +10,7 @@ let changeMode = () => {
 <template>
     <header>
         <nav>
-            <h1>Where in the world ?</h1>
+            <RouterLink :to="'/'"><h1>Where in the world ?</h1></RouterLink>
             <div @click="changeMode()">
                 <span>Dark Mode</span>
                 <svg>
