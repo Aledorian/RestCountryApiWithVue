@@ -2,8 +2,7 @@
     <template>
     <section v-if="elements.length > 0" id="cardList">
         <template v-for="element in elements" :key="element.cca3">
-            <div class="card">
-                <RouterLink :to='"/details/"+ element.cca3' @click="choseCountry(element.cca3)">
+            <RouterLink class="card" :to='"/details/"+ element.cca3' @click="choseCountry(element.cca3)">
                     <img :src = "element.flags.png" alt="">
                     <h3>{{ element.name.common }}</h3>
                     <ul>    
@@ -11,8 +10,7 @@
                         <li>Region : {{ element.region }}</li>
                         <li>Capital : {{ element.capital?.[0] || "No capital"}}</li>
                     </ul>
-                </RouterLink>
-            </div>
+            </RouterLink>
         </template>
     </section>
 

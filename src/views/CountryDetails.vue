@@ -27,7 +27,7 @@ onMounted(async() => {
                         <li>Population : {{ new Intl.NumberFormat("fr-FR").format(element.population) }}</li>
                         <li>Region : {{ element.region }}</li>
                         <li>Capital : {{ element.capital?.[0] || "No capital"}}</li>
-                        <li>Démonymes : {{ element.demonyms.eng.m }}</li>
+                        <li>Démonyme : {{ element.demonyms.eng.m }}</li>
                         <li>Carte : <a :href="element.maps.googleMaps" target="blank">{{ element.maps.googleMaps }}</a></li>
                         <li>Membre des nations Unies : 
                             <span v-if="element.unMember">Oui</span>
@@ -36,7 +36,7 @@ onMounted(async() => {
                         <li>Superficie : {{ new Intl.NumberFormat("fr-FR").format(element.area) }}km²</li>
                         <li>Devise: {{ Object.values(element.currencies)[0].name }} ({{ Object.values(element.currencies)[0].symbol }})</li>
                         <li>Indice téléphonique : {{ element.idd.root }}{{ element.idd.suffixes[0] }}</li>
-                        <li>Cordonnée : lat {{ element.latlng[0] }}° long {{ element.latlng[1] }}°</li>
+                        <li>Cordonnées : lat {{ element.latlng[0] }}° long {{ element.latlng[1] }}°</li>
                     </ul>
             </div>
         </section>
