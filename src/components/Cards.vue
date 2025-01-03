@@ -3,13 +3,13 @@
     <section v-if="elements.length > 0" id="cardList">
         <template v-for="element in elements" :key="element.cca3">
             <RouterLink class="card" :to='"/details/"+ element.cca3' @click="choseCountry(element.cca3)">
-                    <img :src = "element.flags.png" alt="">
-                    <h3>{{ element.name.common }}</h3>
-                    <ul>    
-                        <li>Population : {{ new Intl.NumberFormat("fr-FR").format(element.population) }}</li>
-                        <li>Region : {{ element.region }}</li>
-                        <li>Capital : {{ element.capital?.[0] || "No capital"}}</li>
-                    </ul>
+                <img :src = "element.flags.png" alt="">
+                <h3>{{ element.name.common }}</h3>
+                <ul>    
+                    <li>Population : {{ new Intl.NumberFormat("fr-FR").format(element.population) }}</li>
+                    <li>Region : {{ element.region }}</li>
+                    <li>Capital : {{ element.capital?.[0] || "No capital"}}</li>
+                </ul>
             </RouterLink>
         </template>
     </section>
@@ -27,7 +27,7 @@
 
     const fetchData = async (url) => {
         try {
-            const res = await fetch(url);
+            const res = await fetch(url,{mode: 'cors'})
             const data = await res.json();
             elements.value = data; // Update country list
         } catch (err) {
